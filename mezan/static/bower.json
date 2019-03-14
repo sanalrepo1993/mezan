@@ -1,0 +1,13 @@
+{
+  "name": "static",
+  "homepage": "https://github.com/venusdharan/mezan",
+  "authors": [
+    "venusdharan <venusdharan@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "dependencies": {
+    "popper.js": "^1.14.7"
+  }
+}

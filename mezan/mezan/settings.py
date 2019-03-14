@@ -58,7 +58,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mezan.urls'
-<<<<<<< HEAD
 INTERNAL_IPS = ('127.0.0.1',)
 TIME_FORMAT= 'h:i A'
 DATETIME_FORMAT='d/m/Y H:i:s'
@@ -69,13 +68,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [TEMPLATE_DIR,],
-=======
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
->>>>>>> 429244d70f1d658efa6645c5bab6255ffd8841bb
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
