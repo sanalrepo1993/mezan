@@ -58,12 +58,12 @@ MIDDLEWARE = [
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIRT, "static"),
+    os.path.join(BASE_DIR, "static"),
 
 ]
 
 ROOT_URLCONF = 'mezan.urls'
-TEMPLATE_DIR = os.path.join(BASE_DIRT,'templates')
+TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
