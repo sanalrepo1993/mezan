@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_datatables',
     'crispy_forms',
+    'widget_tweaks',
     'dashboard',
 ]
 REST_FRAMEWORK = {
