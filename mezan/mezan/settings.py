@@ -37,7 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dashboard',
 ]
+
+INTERNAL_IPS = ('127.0.0.1',)
+TIME_FORMAT= 'h:i A'
+DATETIME_FORMAT='d/m/Y H:i:s'
+DATE_FORMAT="d/m/Y"
+TIME_INPUT_FORMATS = ['%I:%M %p']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,12 +56,18 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'mezan.urls'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIRT, "static"),
 
+]
+
+ROOT_URLCONF = 'mezan.urls'
+TEMPLATE_DIR = os.path.join(BASE_DIRT,'templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
