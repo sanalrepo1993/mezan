@@ -1,0 +1,6 @@
+django-crispy-forms
+django-extensions
+mysqlclient
+djangorestframework
+djangorestframework-datatables
+django-widget-tweaks
