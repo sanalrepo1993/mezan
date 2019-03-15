@@ -9,6 +9,6 @@ class Masjid(models.Model):
     masjid_email = models.CharField (max_length = 50)
     mahal = models.ForeignKey(Mahal,on_delete = models.CASCADE)
 
-    def __str__():
+    def __str__(self):
         return self.masjid_name
     
