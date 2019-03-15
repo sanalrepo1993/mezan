@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'crispy_forms',
     'widget_tweaks',
     'dashboard',
+    'masjid',
+    'member',
+    'mahal',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
