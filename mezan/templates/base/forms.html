@@ -1,25 +1,43 @@
+{% extends 'base/base.html' %}
 
-{% load widget_tweaks %}
-<form method="POST" id="{{id}}" action="{{url|safe}}" {% if enctype %} enctype="multipart/form-data" {% endif %}>
-    {% csrf_token %}
-    {% for hidden in form.hidden_fields %}
-    {{ hidden }}
-    {% endfor %}
-    {% for field in form.visible_fields %}
-    <div class="form-group">
-            
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-        {% if field|field_type == 'imagefield' %}
-            
-        {% endif %}
-        {% if field.field.widget.input_type == "checkbox" %}
-        {{field}}
-        {% else %}
-        {{ field|add_class:'form-control' }}
-        {% endif %} 
-        <span class="help-block" id="help_{{ field.id_for_label }}"></span>
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+        <h1>{{formtitle}}</h1>
+        </div>
     </div>
-    {% endfor %}
-    <button class="btn btn-success" type="submit">Submit</button>
-    <button class="btn btn-danger" type="reset">Reset</button>
-</form>
+    <div class="row">
+        <div class="col-sm-8">
+            {% load widget_tweaks %}
+                <form method="POST" id="{{id}}" action="{{url|safe}}" {% if enctype %} enctype="multipart/form-data" {% endif %}>
+                    {% csrf_token %}
+                    {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                    {% endfor %}
+                    {% for field in form.visible_fields %}
+                    <div class="form-group">
+                            
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {% if field|field_type == 'imagefield' %}
+                            
+                        {% endif %}
+                        {% if field.field.widget.input_type == "checkbox" %}
+                        {{field}}
+                        {% else %}
+                        {{ field|add_class:'form-control' }}
+                        {% endif %} 
+                        <span class="help-block" id="help_{{ field.id_for_label }}"></span>
+                    </div>
+                    {% endfor %}
+                    <button class="btn btn-success" type="submit">Submit</button>
+                    <button class="btn btn-danger" type="reset">Reset</button>
+                </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
+
+
