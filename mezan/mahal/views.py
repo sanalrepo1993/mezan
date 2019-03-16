@@ -8,19 +8,36 @@ from .forms import MahalForm
 
 def home(request):
     mahalFrom = None
-    
-    try:
-
-        mahal = Mahal.objects.get(id=1)
-        mahalFrom = MahalForm(instance=mahal)
-    except:
-        print("mahal object not found")
-        mahalFrom = MahalForm()
-    context = {
-        "form":mahalFrom,
-        "formtitle":"Edit Mahal details"
-    }
-    return render(request,"base/forms.html",context)
+    if request.method == "POST":
+        try:
+            mahal = Mahal.objects.get(id=1)
+            mahalFrom = MahalForm(request.POST,instance=mahal)
+        except:
+            mahalFrom = MahalForm(request.POST)
+        if mahalFrom.is_valid():
+            mahalFrom.save()
+        else:
+            print(mahalFrom.errors)
+        context = {
+            "form":mahalFrom,
+            "formtitle":"Edit Mahal details",
+            "url":"/mahal/"
+        }
+        return render(request,"base/forms.html",context)
+    else:
+        mahalFrom = None
+        try:
+            mahal = Mahal.objects.get(id=1)
+            mahalFrom = MahalForm(instance=mahal)
+        except:
+            print("mahal object not found")
+            mahalFrom = MahalForm()
+        context = {
+            "form":mahalFrom,
+            "formtitle":"Edit Mahal details",
+            "url":"/mahal/"
+        }
+        return render(request,"base/forms.html",context)
 
 def edit(request):
     mform = MahalForm()
