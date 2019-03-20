@@ -1,1 +1,55 @@
-{% extends 'base/forigenkeytable.html' %}
+{% extends 'base/base.html' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="mazjid" class="">Mazjid:</label>  
+                    <select id="mazjid" class="form-control">
+                    <option value=>-----------------</option>
+                    {% for keys in foreignKeys %}
+                    <option value="{{keys.id}}">{{keys}}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+        </div>
+        </br></br>
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="btn btn-default" id="family">View Families</button>
+            </div>
+            <div class="col-sm-6">
+                <button class="btn btn-success" id="member">View Members</button>
+            </div>
+        </div>
+    </div>
+    <script>
+    
+    $('#mazjid').on('change', function() {
+            var val = this.value;
+            if(val != "" && val != undefined)
+            console.log(val);      
+    });
+
+    $("#family").click(function(){
+        var e = document.getElementById('#mazjid');
+  
+       var val = document.getElementById("mazjid").value;
+        if(val != "" &&  val != undefined && val != null ){
+            window.location = '/members/family/'+val;
+        }
+       
+        
+
+    });
+    $("#member").click(function(){
+        var e = document.getElementById('#mazjid');
+
+        var val = document.getElementById("mazjid").value;
+        if(val != "" && val != undefined && val != null){
+            window.location = '/members/member/'+val;
+        }
+        
+    });
+    </script>
+{% endblock body %}
