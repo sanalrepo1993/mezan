@@ -11,11 +11,19 @@ def home(request):
     return render(request,"masjid/home.html",t_context)
 
 def add(request):
-    masjidform = MasjidForm()
+    if request.method == "POST":
+        masjidform = MasjidForm(request.POST)
+        if masjidform.is_valid():
+            masjidform.save()
+        else:
+            print(masjidform.errors)
+    else:
+        masjidform = MasjidForm()
+
     context = {
             "form":masjidform,
             "formtitle":"Add new mazjid",
-            "url":"/masjid/"
+            "url":"/masjid/add/"
         }
     return render(request,"base/forms.html",context)
 

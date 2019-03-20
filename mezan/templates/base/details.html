@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+{% block body %}
+
+<div class="container">
+    <div class='col-sm-6'>
+        <h1>{{details}}</h1>
+        {% block details_block %}
+        {% endblock details_block %}
+    </div>
+</div>
+
+{% endblock body %}

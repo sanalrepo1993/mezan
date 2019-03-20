@@ -6,7 +6,7 @@ class MasjidSerializer(serializers.ModelSerializer):
     class Meta:
         model = Masjid
         #exclude = ['patient_image','patient_address']
-        field = '__all__'
+        fields = '__all__'
         '''
         (
             'id', 'patient_name','patient_dob'
