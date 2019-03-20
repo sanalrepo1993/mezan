@@ -8,7 +8,8 @@ from . import views
 
 urlpatterns = [
     path('',views.home),
-    #path('add/', views.add),
+    path('add/family/', views.add_family),
+    path('add/member/', views.add_member),
     #path('api/', include(router.urls)),
     #path('details/<int:id>',views.details),
     #path('edit/<int:id>',views.edit),
