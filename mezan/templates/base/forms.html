@@ -24,9 +24,17 @@
                             
                         {% endif %}
                         {% if field.field.widget.input_type == "checkbox" %}
-                        {{field}}
+                            {% if delete_form%}
+                            {{ field|attr:'disabled' }}
+                            {% else %}
+                            {{ field }}
+                            {% endif %}
                         {% else %}
-                        {{ field|add_class:'form-control' }}
+                            {% if delete_form%}
+                                {{ field|add_class:'form-control'|attr:'disabled' }}
+                                {% else %}
+                                {{ field|add_class:'form-control' }}
+                                {% endif %}
                         {% endif %} 
                         <span class="help-block" id="help_{{ field.id_for_label }}"></span>
                     </div>

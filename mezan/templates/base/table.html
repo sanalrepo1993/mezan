@@ -20,13 +20,13 @@
                       <button class="btn btn-warning"  id="view_edit" style="margin-left:0.25%; margin-right:0.25%;"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;Edit</button>
                     {% endif %}
                     {% if print_url %}
-                      <button class="btn btn-warning" style="margin-left:0.25%; margin-right:0.25%;"><i class="fa fa-id-card-o" aria-hidden="true"></i>&nbsp;&nbsp;Print Card</button>
+                      <button class="btn btn-warning" id="view_print" style="margin-left:0.25%; margin-right:0.25%;"><i class="fa fa-id-card-o" aria-hidden="true"></i>&nbsp;&nbsp;Print Card</button>
                     {% endif %}
                     {% if forward_url %}
-                      <button class="btn btn-warning" style="margin-left:0.25%; margin-right:0.25%;"><i class="fa fa-forward" aria-hidden="true"></i>&nbsp;&nbsp;Forward</button>
+                      <button class="btn btn-warning" id="view_forward" style="margin-left:0.25%; margin-right:0.25%;"><i class="fa fa-forward" aria-hidden="true"></i>&nbsp;&nbsp;Forward</button>
                     {% endif %}
                     {% if delete_url %}
-                      <button class="btn btn-danger" style="margin-left:0.25%; margin-right:0.25%;"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;&nbsp;Delete</button>
+                      <button class="btn btn-danger" id="view_delete" style="margin-left:0.25%; margin-right:0.25%;"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;&nbsp;Delete</button>
                     {% endif %}
                     </div>
                   </div>
@@ -50,34 +50,33 @@
 <script>
   var table
       $(document).ready(function() {
-      $("#view_edit").on('click',function(){
-        var id = table.row('.selected').id();
-        var mtitle = $(this).attr('data-model-title');
-                  if(id != undefined){
-                    $.get("{{edit_url}}"+id, function(data, status){
-                      $(".modal-title").text(mtitle);
-                      $(".modal-body").html(data);
-                      $('#mainModal').modal('show');
-                      var tag = $('.form-group').find('a');
-                      tag.replaceWith("<img src='"+tag.attr('href')+"' class='img-thumbnail' width='100px' height='100px' />");
-                    });
-        }
-        
-      });
-
+      {% if details_url %}
       $("#view_details").on('click',function(){
         var id = table.row('.selected').id();
-         var mtitle = $(this).attr('data-model-title');
-                  if(id != undefined){
-                    $.get("{{details_url}}"+id, function(data, status){
-                      $(".modal-body").html(data);
-                      $(".modal-title").text(mtitle);
-                      $('#mainModal').modal('show');
-                      
-                    });
-        }
-        
+        window.location = '{{details_url}}/'+id;       
       });
+      {% endif %}
+      {% if edit_url %}
+      $("#view_edit").on('click',function(){
+              var id = table.row('.selected').id();
+              window.location = '{{edit_url}}/'+id;  
+      });
+      {% endif %}
+      {% if forward_url %}
+      $("#view_delete").on('click',function(){
+              var id = table.row('.selected').id();
+              window.location= '{{forward_url}}/'+id; 
+      });
+      {% endif %}
+      {% if delete_url %}
+      $("#view_delete").on('click',function(){
+              var id = table.row('.selected').id();
+              window.location = '{{delete_url}}/'+id; 
+      });
+      {% endif %}
+      
+
+      
 
      //$("#toolbox").hide();
     table = $('#view_table').DataTable({
@@ -91,16 +90,8 @@
               "columnDefs":{{column_width|safe}}
               {% endif %}
         });
-     $("#view_edit").on('click',function(){
-              var id = table.row('.selected').id();
-              window.location.hash = '{{edit_url}}/'+id;
-        
-      });
-      $("#view_delete").on('click',function(){
-              var id = table.row('.selected').id();
-              window.location.hash = '{{delete_url}}/'+id;
-        
-      });
+      
+      
 
 	 $('#table_refresh').on('click',function(){
             table.ajax.reload();
