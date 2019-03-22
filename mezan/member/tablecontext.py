@@ -1,9 +1,9 @@
 def index():
     table_coloums = """
         [
-        {'data': 'masjid_name', 'searchable': true},
-        {'data': 'masjid_contact_no'},
-        {'data': 'masjid_email'},
+        {'data': 'house_name', 'searchable': true},
+        {'data': 'house_address'},
+        {'data': 'house_memebrship'},
         //{'data': 'patient_martial_status'},
         //{'data': 'patient_blood_group'},
         //{'data': 'patient_phone'},
@@ -16,9 +16,9 @@ def index():
     """
     table_colums_width = """
     [
-        { "width": "50%", "targets": 0 },
-        { "width": "25%", "targets": 1 },
-        { "width": "25%", "targets": 2 },
+        { "width": "30%", "targets": 0 },
+        { "width": "60%", "targets": 1 },
+        { "width": "10%", "targets": 2 },
         //{ "width": "5%", "targets": 3 },
         //{ "width": "2%", "targets": 4 },
         //{ "width": "20%", "targets": 5 },
@@ -29,9 +29,9 @@ def index():
 
     """
     table_heads = [ 
-                        "Mazjid",
-                        "Phone No",
-                        "Email",
+                        "House Name",
+                        "Address",
+                        "Membership",
                         #"Blood Group",
                         #"Phone",
                         #"Email",
@@ -50,7 +50,7 @@ def index():
     '''
     
     context = {
-        "ajax" : "'/masjid/api/masjid_list/?getId=&format=datatables'",
+        "ajax" : "'/members/api/family_list/?getId=&format=datatables'",
         "edit_url":"./edit",
         "report_url":"./report",
         "delete_url":"./delete",

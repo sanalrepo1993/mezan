@@ -9,6 +9,7 @@ from django.shortcuts import redirect
 
 def home(request):
     t_context = tablecontext.index()
+    t_context["navbar"] =True
     return render(request,"masjid/home.html",t_context)
 
 def add(request):
@@ -23,6 +24,7 @@ def add(request):
 
     context = {
             "form":masjidform,
+            "navbar":True,
             "formtitle":"Add new mazjid",
             "url":"/masjid/add/"
         }
@@ -41,6 +43,7 @@ def edit(request,id):
 
     context = {
             "form":masjidform,
+            "navbar":True,
             "formtitle":"Add new mazjid",
             "url":"/masjid/edit/"+str(id)
         }
@@ -58,6 +61,7 @@ def delete(request,id):
 
         context = {
                 "form":masjidform,
+                "navbar":True,
                 "formtitle":"Delete mazjid",
                 "url":"/masjid/delete/"+str(id),
                 "delete_form": "true",
@@ -72,6 +76,7 @@ def details(request,id):
     context = {
         'data':data,
         'details':"Mazjid Details",
+        "navbar":True,
     }
     return render(request,'masjid/details.html',context)
 

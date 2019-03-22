@@ -20,6 +20,7 @@ def home(request):
             print(mahalFrom.errors)
         context = {
             "form":mahalFrom,
+            "navbar":True,
             "formtitle":"Edit Mahal details",
             "url":"/mahal/"
         }
@@ -34,6 +35,7 @@ def home(request):
             mahalFrom = MahalForm()
         context = {
             "form":mahalFrom,
+            "navbar":True,
             "formtitle":"Edit Mahal details",
             "url":"/mahal/"
         }

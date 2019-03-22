@@ -5,18 +5,22 @@ from . import models
 from masjid.models import Masjid
 from .forms import FamilyForm,MemberForm
 
+from .serializer import FamilySerializer
+from .tablecontext import index
+
+class FamilyViewSet(viewsets.ModelViewSet):
+    queryset = models.Family.objects.all()
+    serializer_class = FamilySerializer
+
 def home(request):
     mazjis = Masjid.objects.all()
-    context = {
-        'foreignKeys':mazjis,
-        'keyId':'masjidId',
-        'enableKeys':True,
-        'keyname':"Mazjid",
-
-    }
-    return render(request,'memebrs/home.html',context=context)
+    context = index()
+    return render(request,'members/home.html',context=context)
 
 def add_family(request):
+    narvbar = True
+    if 'ui' in request.GET:
+        narvbar = False
     if request.method == "POST":
         masjidform = FamilyForm(request.POST)
         if masjidform.is_valid():
@@ -28,8 +32,9 @@ def add_family(request):
 
     context = {
             "form":masjidform,
-            "formtitle":"Add new Family",
-            "url":"/members/family/add/"
+            "navbar":narvbar,
+            "formtitle":"Add New Family",
+            "url":"/members/add/family/"
         }
     return render(request,"base/forms.html",context)
 
@@ -45,8 +50,9 @@ def add_member(request):
 
     context = {
             "form":masjidform,
-            "formtitle":"Add new Family",
+            "navbar":True,
+            "formtitle":"Add New Family Member",
             "url":"/members/family/add/"
         }
-    return render(request,"base/forms.html",context)
+    return render(request,"members/membersform.html",context)
 

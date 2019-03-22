@@ -1,0 +1,18 @@
+{% extends 'base/forms.html' %}
+
+{% block script %}
+<script>
+    $("#help_id_memeber_family").html("<a id='id_add_family' href='#'>Add New Family</a>");
+    $('#id_add_family').on('click',function(){
+        var w = window.open("/members/add/family/?ui=true", "popupWindow", "width=600, height=400, scrollbars=yes");
+        w.onload = function() {
+        };
+        w.onunload = function() {
+        //alert('closed'); // shows false
+            console.log(w.closed);
+        };
+        //var $w = $(w.document.body);
+        //$w.html("<textarea></textarea>");
+    });
+</script>
+{% endblock script %}

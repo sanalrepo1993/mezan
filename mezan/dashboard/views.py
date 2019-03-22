@@ -6,6 +6,7 @@ from django.shortcuts import render
 def dashboard(request):
     context = {
         "title":"Dashboard",
+        "navbar":True,
     }
     return render(request,"dashboard/dashboard.html",context)
 
