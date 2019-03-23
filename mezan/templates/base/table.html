@@ -28,6 +28,8 @@
                     {% if delete_url %}
                       <button class="btn btn-danger" id="view_delete" style="margin-left:0.25%; margin-right:0.25%;"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;&nbsp;Delete</button>
                     {% endif %}
+                    {% block toolbox %}
+                    {% endblock toolbox %}
                     </div>
                   </div>
                   </br>
@@ -50,6 +52,10 @@
 <script>
   var table
       $(document).ready(function() {
+
+      {% block scripts %}
+      
+      {% endblock %}
       {% if details_url %}
       $("#view_details").on('click',function(){
         var id = table.row('.selected').id();

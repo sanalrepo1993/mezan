@@ -18,9 +18,7 @@ def home(request):
     return render(request,'members/home.html',context=context)
 
 def add_family(request):
-    narvbar = True
-    if 'ui' in request.GET:
-        narvbar = False
+    
     if request.method == "POST":
         masjidform = FamilyForm(request.POST)
         if masjidform.is_valid():
@@ -32,7 +30,6 @@ def add_family(request):
 
     context = {
             "form":masjidform,
-            "navbar":narvbar,
             "formtitle":"Add New Family",
             "url":"/members/add/family/"
         }
@@ -50,7 +47,6 @@ def add_member(request):
 
     context = {
             "form":masjidform,
-            "navbar":True,
             "formtitle":"Add New Family Member",
             "url":"/members/family/add/"
         }
