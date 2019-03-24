@@ -13,6 +13,8 @@
                   </div>
                   <div class="col-sm-9">
                     <div id="toolbox" class="width:100%;" style="display:none;">
+                    {% block toolbox %}
+                    {% endblock toolbox %}
                     {% if details_url %}
                       <button class="btn btn-success"  id="view_details" style="margin-left:0.25%; margin-right:0.25%;"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;View Details</button>
                     {% endif %}
@@ -28,8 +30,7 @@
                     {% if delete_url %}
                       <button class="btn btn-danger" id="view_delete" style="margin-left:0.25%; margin-right:0.25%;"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;&nbsp;Delete</button>
                     {% endif %}
-                    {% block toolbox %}
-                    {% endblock toolbox %}
+
                     </div>
                   </div>
                   </br>
@@ -54,7 +55,7 @@
       $(document).ready(function() {
 
       {% block scripts %}
-      
+
       {% endblock %}
       {% if details_url %}
       $("#view_details").on('click',function(){

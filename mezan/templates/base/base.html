@@ -84,7 +84,7 @@
         </ul>
       </li>
       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Madrasa
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span data-lang-mal="മദ്രസ " data-lang-eng="Madrasa" class="lang-sw">Madrasa</span>
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#">View All</a></li>
@@ -104,8 +104,16 @@
 
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="/mahal/"><span class="glyphicon glyphicon-cog"></span> Settings </a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sign Out </a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Language
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a class="lang" data-lang-trigger="eng" href="#">English</a></li>
+          <li><a class="lang" data-lang-trigger="mal" href="#">മലയാളം</a></li>
+        </ul>
+      </li>
+      <li><a href="/mahal/" ><span class=" glyphicon glyphicon-cog"></span> <span data-lang-mal="സെറ്റിംഗ്സ്" data-lang-eng="Settings" class="lang-sw"> Settings </span></a></li>
+      <li><a href="#" ><span class= "glyphicon glyphicon-log-in"></span> <span data-lang-mal="ലോഗൗട്ട്" data-lang-eng="Sign out" class="lang-sw"> Sign Out  </span></a></li>
     </ul>
   </div>
 </nav>
@@ -120,6 +128,27 @@ jQuery.each(jQuery('textarea[data-autoresize]'), function() {
         jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
     };
     jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
+});
+
+$(document).ready(function(){
+  $('.lang').click(function(e){
+    var lang = $(this).attr('data-lang-trigger');
+    localStorage.setItem("lang", lang);
+    $(".lang-sw").each(function(element, index) {
+          console.log(index);
+      $(index).text($(index).attr('data-lang-'+lang));
+    });
+    e.preventDefault();
+    return false;
+  });
+  var langD = localStorage.getItem('lang');
+  if(langD != null){
+    $(".lang-sw").each(function(element, index) {
+          console.log(index);
+      $(index).text($(index).attr('data-lang-'+langD));
+    });
+  }
+
 });
 </script>
 </body>

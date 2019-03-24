@@ -5,7 +5,39 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-        
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="/members">Family</a></li>
+            </ol>
+        </nav>
+        <h4>Members in <strong>{{family}}</strong></h4>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>DOB</th>
+                <th>Email</th>
+                <th style="width:5%;" >Edit</th>
+                <th style="width:5%;">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for m in members %}
+                <tr>
+                <td>{{m.member_name}}</td>
+                <td>{{m.member_contact_no}}</td>
+                <td>{{m.member_dob }}</td>
+                <td>{{m.member_email }}</td>
+                <td><a href="/members/edit/{{m.id}}/{{family_id}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td><a href="/members/delete/{{m.id}}/{{family_id}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+            </tr>
+            {% endfor %}
+            
+            
+            </tbody>
+        </table>
         </div>
     </div>
     <div class="row">

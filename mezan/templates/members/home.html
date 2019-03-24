@@ -1,2 +1,13 @@
 {% extends 'base/table.html' %}
 
+{% block toolbox %}
+     <button class="btn btn-success" id="view_add_member" style="margin-left:0.25%; margin-right:0.25%;"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;&nbsp;Add Family Member</button>
+{% endblock toolbox %}
+
+{% block scripts %}
+$("#view_add_member").on('click',function(){
+        var id = table.row('.selected').id();
+        window.location = './family/members/'+id;       
+});
+{% endblock scripts %}
+

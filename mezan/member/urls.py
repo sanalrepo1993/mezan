@@ -11,7 +11,7 @@ urlpatterns = [
     path('add/family/', views.add_family),
     path('add/member/', views.add_member),
     path('api/', include(router.urls)),
-    #path('details/<int:id>',views.details),
-    #path('edit/<int:id>',views.edit),
-    #path('delete/<int:id>',views.delete),
+    path('family/members/<int:id>',views.family_member),
+    path('edit/<int:id>/<int:rid>',views.family_member_edit),
+    path('delete/<int:id>/<int:rid>',views.delete),
 ]

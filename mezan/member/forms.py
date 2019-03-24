@@ -7,7 +7,7 @@ class MemberForm (forms.ModelForm):
     
     class Meta:
         model = Member
-        fields = '__all__'
+        exclude = ['memeber_family']
         widgets  = { 'member_dob' : forms.DateInput(attrs= {'type':'date'}), }  
 
 class FamilyForm (forms.ModelForm):
