@@ -11,6 +11,11 @@
                 <li class="breadcrumb-item"><a href="/members"><span data-lang-mal="കുടുംബം" data-lang-eng="Family" class="lang-sw">Family</a></li>
             </ol>
         </nav>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+        
         <h4>Members in <strong>{{family}}</strong></h4>
         <table class="table table-bordered">
             <thead>
@@ -42,7 +47,7 @@
     </div>
     <div class="row">
         <div class="col-sm-12">
-        <h3>{{formtitle}}</h3>
+        <h4>Add new member to family</h4>
             {% load widget_tweaks %}
                 <form method="POST" id="{{id}}" action="{{url|safe}}" {% if enctype %} enctype="multipart/form-data" {% endif %}>
                     {% csrf_token %}
@@ -72,8 +77,8 @@
                         <span class="help-block" id="help_{{ field.id_for_label }}"></span>
                     </div>
                     {% endfor %}
-                    <button class="btn btn-success" type="submit">Submit</button>
-                    <button class="btn btn-danger" type="reset">Reset</button>
+                    <button class="btn btn-success" type="submit"><span data-lang-mal="സമര്‍പ്പിക്കുക" data-lang-eng="Submit" class="lang-sw">Submit</button>
+                    <button class="btn btn-danger" type="reset"><span data-lang-mal="വീണ്ടെടുക്കുക" data-lang-eng="Reset" class="lang-sw">Reset</button>
                 </form>
         </div>
     </div>
