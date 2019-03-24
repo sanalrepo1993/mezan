@@ -47,7 +47,7 @@
     </div>
     <div class="row">
         <div class="col-sm-12">
-        <h3>{{formtitle}}</h3>
+        <h4>Add new member to family</h4>
             {% load widget_tweaks %}
                 <form method="POST" id="{{id}}" action="{{url|safe}}" {% if enctype %} enctype="multipart/form-data" {% endif %}>
                     {% csrf_token %}
