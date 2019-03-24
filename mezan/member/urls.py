@@ -14,4 +14,5 @@ urlpatterns = [
     path('family/members/<int:id>',views.family_member),
     path('edit/<int:id>/<int:rid>',views.family_member_edit),
     path('delete/<int:id>/<int:rid>',views.delete),
+    path('details/<int:id>',views.details)
 ]

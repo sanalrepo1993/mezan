@@ -58,6 +58,15 @@ def family_member_edit(request,id,rid):
     }
     return render(request,'base/forms.html',context=context)
 
+def details(request,id):
+    data = models.Family.objects.get(id=id)
+    context = {
+        'data':data,
+        'details':"Family Details",
+        "navbar":True,
+    }
+    return render(request,'members/details.html',context)
+
 def delete(request,id,rid):
     models.Member.objects.filter(id=id).delete()
     return HttpResponseRedirect('/members/family/members/'+str(rid))
