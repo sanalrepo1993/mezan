@@ -2,25 +2,28 @@
 
 
 {% block body %}
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <div class="col-sm-2" style="margin-top:2%;">
-       <div class="panel panel-warning">
-        <div class="panel-heading"><h5>Total Families</h5></div>
-        <div class="panel-body">Panel Content</div>
-      </div>
+    <div class="col-sm-6 col-sm-offset-3" style="margin-top:2%;">
+       <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Total Mazjid</th>
+            <th>{{masjid_count}}</th>
+          </tr>
+          <tr>
+            <th>Total Family</th>
+            <th>{{family_count}}</th>
+          </tr>
+          <tr>
+            <th>Total Members</th>
+            <th>{{member_count}}</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        </thead>
     </div>
-    <div class="col-sm-2" style="margin-top:2%;">
-       <div class="panel panel-warning">
-        <div class="panel-heading"><h5>Total Members</h5></div>
-        <div class="panel-body">Panel Content</div>
-      </div>
-    </div>
-    <div class="col-sm-2" style="margin-top:2%;">
-       <div class="panel panel-warning">
-        <div class="panel-heading"><h5>Total Mazjid</h5></div>
-        <div class="panel-body">Panel Content</div>
-      </div>
     </div>
   </div>
 </div> 
