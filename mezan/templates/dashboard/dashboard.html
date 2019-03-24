@@ -5,19 +5,37 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12" style="margin-top:2%;">
+    <h3 style="text-align:center;">{{mahal.mahal_name}}</h3>
+    <hr style="border-top: 1px solid black !important;">
+      <div class="row" >
+        <div class="col-sm-3" style="height:100px; !important; overflow-y:scroll;">
+         <h5><strong><span>Address:</span></strong><span>{{mahal.mahal_address}}</span></h5>
+        </div>
+        <div class="col-sm-3">
+         <h5><strong><span>Contact:</span></strong><span>{{mahal.mahal_contact_no}}</span></h5>
+        </div>
+        <div class="col-sm-3">
+         <h5><strong><span>Email:</span></strong><span>{{mahal.mahal_email}}</span></h5>
+        </div>
+        <div class="col-sm-3">
+         <h5><strong><span>Wakaf RegNo:</span></strong><span>{{mahal.mahal_wakaf_no}}</span></h5>
+        </div>
+      </div>
+      <hr style="border-top: 1px solid black !important;">
+    </br>
        <table class="table table-bordered">
         <thead>
           <tr >
             <th><h4 span data-lang-mal="ആകെ മസ്‌ജിദ്‌കളുടെ എണ്ണം" data-lang-eng="Total Mazjid" class="lang-sw">Total Mazjid</h4></th>
-            <th><h4>{{masjid_count}}</h4></th>
+            <th style="width:15%; text-align:center;"><h4>{{masjid_count}}</h4></th>
           </tr>
           <tr>
             <th><h4 span data-lang-mal="ആകെ കുടുംബങ്ങളുടെ എണ്ണം" data-lang-eng="Total Family" class="lang-sw">Total Family</h4></th>
-            <th><h4>{{family_count}}</h4></th>
+            <th style="width:15%; text-align:center;"><h4>{{family_count}}</h4></th>
           </tr>
           <tr>
             <th><h4 span data-lang-mal="ആകെ അംഗങ്ങളുടെ എണ്ണം" data-lang-eng="Total Members" class="lang-sw">Total Members</h4></th>
-            <th><h4>{{member_count}}</h4></th>
+            <th style="width:15%; text-align:center;"><h4>{{member_count}}</h4></th>
           </tr>
         </thead>
         <tbody>
