@@ -135,21 +135,32 @@ $(document).ready(function(){
     var lang = $(this).attr('data-lang-trigger');
     localStorage.setItem("lang", lang);
     $(".lang-sw").each(function(element, index) {
-          console.log(index);
+      console.log(index);
       $(index).text($(index).attr('data-lang-'+lang));
     });
+    if(isFunction('change_lang')){
+        change_lang(lang)
+      }
     e.preventDefault();
     return false;
   });
   var langD = localStorage.getItem('lang');
   if(langD != null){
     $(".lang-sw").each(function(element, index) {
-          console.log(index);
+      if(isFunction('change_lang')){
+        change_lang(langD)
+      }
       $(index).text($(index).attr('data-lang-'+langD));
     });
   }
 
 });
+
+function isFunction(possibleFunction) {
+   if(eval("typeof(" + possibleFunction + ") == typeof(Function)")) {
+        return true;
+    }
+}
 </script>
 </body>
 </html>
