@@ -4,12 +4,18 @@
 <script>
 function change_lang(lang){
     if(lang == "mal"){
-        $("label[for='id_masjid_name']").text('പേര്');
-        $("label[for='id_masjid_address']").text('വിലാസം');
+        $("label[for='id_masjid_name']").text('മസ്‌ജിദിൻ്റെ പേര്');
+        $("label[for='id_masjid_address']").text('മസ്‌ജിദിൻ്റെ വിലാസം');
+        $("label[for='id_masjid_contact_no']").text('മസ്‌ജിദിൻ്റെ ഫോൺ');
+        $("label[for='id_masjid_email']").text('മസ്‌ജിദിൻ്റെ ഇമെയിൽ ');
+        $("label[for='id_mahal']").text('മഹൽ');
     }
     if(lang == "eng"){
         $("label[for='id_masjid_name']").text('Masjid name');
         $("label[for='id_masjid_address']").text('Masjid address');
+        $("label[for='id_masjid_contact_no']").text('Masjid contact no');
+        $("label[for='id_masjid_email']").text('Masjid email');
+        $("label[for='id_mahal']").text('Mahal');
     }
 }
 </script>
