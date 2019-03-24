@@ -4,10 +4,12 @@
 <script>
 function change_lang(lang){
     if(lang == "mal"){
-        $("label[for='id_masjid_name']").text('മസ്‌ജിന്റെ പേര്');
+        $("label[for='id_masjid_name']").text('പേര്');
+        $("label[for='id_masjid_address']").text('വിലാസം');
     }
     if(lang == "eng"){
         $("label[for='id_masjid_name']").text('Masjid name');
+        $("label[for='id_masjid_address']").text('Masjid address');
     }
 }
 </script>
