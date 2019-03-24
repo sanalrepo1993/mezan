@@ -51,6 +51,7 @@ def index():
     
     context = {
         "ajax" : "'/members/api/family_list/?getId=&format=datatables'",
+        "add_url":"./add/family",
         "edit_url":"./edit",
         "report_url":"./report",
         "delete_url":"./delete",

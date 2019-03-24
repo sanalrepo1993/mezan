@@ -28,7 +28,7 @@ def add(request):
             "formtitle":"Add new mazjid",
             "url":"/masjid/add/"
         }
-    return render(request,"base/forms.html",context)
+    return render(request,"masjid/forms.html",context)
 
 def edit(request,id):
     masjid = Masjid.objects.get(id=id)
@@ -47,7 +47,7 @@ def edit(request,id):
             "formtitle":"Add new mazjid",
             "url":"/masjid/edit/"+str(id)
         }
-    return render(request,"base/forms.html",context)
+    return render(request,"masjid/forms.html",context)
 
 def delete(request,id):
     masjid = Masjid.objects.get(id=id)
