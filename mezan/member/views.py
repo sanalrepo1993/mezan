@@ -5,18 +5,25 @@ from . import models
 from masjid.models import Masjid
 from .forms import FamilyForm,MemberForm
 from django.http import HttpResponse, HttpResponseRedirect
-from .serializer import FamilySerializer
-from .tablecontext import index
+from .serializer import FamilySerializer,MemberSerializer
+from . import tablecontext
 
 class FamilyViewSet(viewsets.ModelViewSet):
     queryset = models.Family.objects.all()
     serializer_class = FamilySerializer
+
+class MemberViewSet(viewsets.ModelViewSet):
+    queryset = models.Member.objects.all()
+    serializer_class = MemberSerializer
     
 
-def home(request):
-    mazjis = Masjid.objects.all()
-    context = index()
+def home(request):  
+    context = tablecontext.index()
     return render(request,'members/home.html',context=context)
+
+def fhome(request):
+    context = tablecontext.member()
+    return render(request,'members/members.html',context=context)
 
 def family_member(request,id):
     family = models.Family.objects.get(id= id)
