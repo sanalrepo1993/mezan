@@ -13,7 +13,9 @@ class FamilyViewSet(viewsets.ModelViewSet):
     serializer_class = FamilySerializer
 
 class MemberViewSet(viewsets.ModelViewSet):
-    queryset = models.Member.objects.all()
+    queryset = models.Member.objects.select_related().all()
+    for m in queryset:
+        print(m.memeber_family)
     serializer_class = MemberSerializer
     
 

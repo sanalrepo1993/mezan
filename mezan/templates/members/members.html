@@ -5,6 +5,7 @@
 {% endblock toolbox %}
 
 {% block scripts %}
+
 $("#view_add_member").on('click',function(){
         var id = table.row('.selected').id();
         window.location = './family/members/'+id;       
