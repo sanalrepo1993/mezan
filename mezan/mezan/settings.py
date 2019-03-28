@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'member',
     'school',
     'mahal',
+    'function',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
